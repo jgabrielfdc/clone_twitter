@@ -1,0 +1,21 @@
+<h1>Index</h1>
+<hr>
+<table class="table">
+    <tr>
+        <th>ID</th>
+        <th>Descrição</th>
+        <th>Preço</th>
+    </tr>
+<?php
+   $dados=$this->view->dados;
+   foreach($dados as $valores){
+    echo "<tr>";
+        foreach($valores as $info){
+            echo "<td>";
+            echo $info;
+            echo "</td>";
+        }
+    echo "</tr>";
+   }
+?>
+</table>
