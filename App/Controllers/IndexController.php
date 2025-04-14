@@ -13,22 +13,18 @@ public function index(){
 }
 public function inscreverse(){
 
+    $this->view->errorCadastro=false;
     $this->render("inscreverse");
 }
 
 public function cadastro(){
    
     //sucesso
-
-    try{
         $user=Container::getModel("Usuario");
         $user->__set("name", $_POST["nome"]);
         $user->__set("email", $_POST["email"]);
         $user->__set("password", $_POST["senha"]);
       
-    }catch(\Exception $e){
-        echo $e->getMessage();
-    }
 
     if($user->validateSave()){
         if(count($user->getUserByEmail())===0){
@@ -36,6 +32,9 @@ public function cadastro(){
             $this->render("cadastro");
         };
     }else{
+
+        $this->view->errorCadastro=true;
+
         $this->render("inscreverse");
     }
 
