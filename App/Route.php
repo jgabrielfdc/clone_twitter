@@ -26,6 +26,40 @@ class Route extends Bootstrap
             "action" => "cadastro"
         );
 
+
+        // ? AuthController
+        $routes["autenticar"] = array(
+            "route" => "/autenticar",
+            "controller" => "authController",
+            "action" => "autenticar"
+        );
+        
+        $routes["sair"] = array(
+            "route" => "/sair",
+            "controller" => "authController",
+            "action" => "sair"
+        );
+        
+
+        // ? AppController
+        $routes["timeline"] = array(
+            "route" => "/timeline",
+            "controller" => "appController",
+            "action" => "timeline"
+        );
+
+        $routes["tweet"] = array(
+            "route" => "/tweet",
+            "controller" => "appController",
+            "action" => "tweet"
+        );
+
+        $routes["deletar"] = array(
+            "route" => "/deletar",
+            "controller" => "appController",
+            "action" => "deletar"
+        );
+
         $this->setRoutes($routes);
     }
 

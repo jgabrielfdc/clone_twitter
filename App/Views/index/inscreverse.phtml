@@ -4,12 +4,9 @@
       <div class="card-body">
 
         <div class="d-flex justify-content-center">
-<<<<<<< HEAD
+
           <img src="assets/img/twitter_logo.png" />
-=======
-          <img src="/img/twitter_logo.png" />
->>>>>>> d2c67d0a7fdda5bc91111ea342f7fc9a5e1082a1
-        </div>
+</div>
 
         <div class="row">
           <div class="col">
@@ -20,7 +17,6 @@
         <div class="row">
           <div class="col">
             
-<<<<<<< HEAD
             <form action="/cadastro" method="post">
               <div class="form-group">
                 <input type="text" class="form-control" placeholder="Nome" name="nome">
@@ -32,19 +28,6 @@
 
               <div class="form-group">
                 <input type="password" class="form-control" placeholder="Senha" name="senha">
-=======
-            <form action="" method="post">
-              <div class="form-group">
-                <input type="text" class="form-control" placeholder="Nome">
-              </div>
-              
-              <div class="form-group">
-                <input type="text" class="form-control" placeholder="E-mail">
-              </div>
-
-              <div class="form-group">
-                <input type="password" class="form-control" placeholder="Senha">
->>>>>>> d2c67d0a7fdda5bc91111ea342f7fc9a5e1082a1
               </div>
               
               <div class="mt-4 mb-4">
@@ -53,6 +36,10 @@
                 </small>
               </div>
               <button type="submit" class="btn btn-primary btn-block">Inscrever-se</button>
+
+              <? if($this->view->errorCadastro){ ?>
+                <small class="form-text text-danger"><?=$this->view->feedback;?></small>
+              <? }?>
             </form>
 
           </div>

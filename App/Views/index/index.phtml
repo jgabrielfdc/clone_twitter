@@ -21,31 +21,30 @@
     </div>
 
     <div class="col-md-6 pt-4 pl-5 pr-5">
-		<form>
+		<form action="/autenticar" method="POST">
 			<div class="row">
 				<div class="col">
-					<input type="text" class="form-control" placeholder="E-mail">
+					<input type="text" class="form-control" placeholder="E-mail" name="email">
 				</div>
 				<div class="col">
-					<input type="text" class="form-control" placeholder="Senha">
+					<input type="text" class="form-control" placeholder="Senha" name="senha">
 				</div>
 				<div class="col-auto">
 					<button type="submit" class="btn btn-primary mb-2">Entrar</button>
 				</div>
 			</div>
+
+			<? if($this->view->login==="erro"){?> 
+
+				<p class="text-danger">* Email ou senha inválidos</p>
+
+			<? } ?>
 		</form>
 
 		<div class="row pt-5 pl-5 pr-5">
 			<div class="col pl-5 pr-5">
-<<<<<<< HEAD
 				<img src="assets/img/twitter_logo.png" />
-=======
-<<<<<<< HEAD
-				<img src="assets/img/twitter_logo.png" />
-=======
-				<img src="/img/twitter_logo.png" />
->>>>>>> d2c67d0a7fdda5bc91111ea342f7fc9a5e1082a1
->>>>>>> 446f716412b46facb7d8f1c1e4db776cd3e213f1
+
 				<h1 class="title">Veja o que está acontecendo no mundo agora</h1>
 
 				<h2 class="mt-5 subtitle">Participe hoje do Twitter.</h2>
@@ -58,3 +57,4 @@
 
   </div>
 </div>
+
