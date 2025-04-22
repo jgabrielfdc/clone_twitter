@@ -36,10 +36,23 @@ public function registraTweet(){
 
 // Recupera o tweet
 public function recuperaTweets(){
-    $query="SELECT T.id,T.id_usuario, U.nome, T.tweet, T.data FROM tweets as T INNER JOIN usuarios as U ON T.id_usuario=U.id";
+    $query="SELECT 
+                T.id,
+                T.id_usuario, 
+                U.nome,
+                T.tweet,
+                T.data 
+            FROM 
+                tweets as T 
+            LEFT JOIN 
+                usuarios as U
+            ON 
+                (T.id_usuario=U.id) 
+            WHERE 
+                T.id_usuario=:id_usuario
+                or T.id_usuario in (SELECT id_usuario_seguindo FROM usuarios_seguidores WHERE id_usuario=:id_usuario)"; 
     $stmt=$this->db->prepare($query);
-    //$stmt->bindValue(":id_usuario",$this->__get("id_usuario"));
-
+    $stmt->bindValue(":id_usuario",$this->__get('id_usuario'));
     $stmt->execute();
 
     return $stmt->fetchAll(\PDO::FETCH_ASSOC);
@@ -53,6 +66,14 @@ public function deletarTweet(){
 
     $stmt->execute();
     return $this;
+}
+
+public function getTweetsCount(){
+    $query='SELECT count(id) as qnt_tweets FROM tweets WHERE id_usuario=:id_usuario';
+    $stmt=$this->db->prepare($query);
+    $stmt->bindValue(':id_usuario',$this->__get('id_usuario'));
+    $stmt->execute();
+    return $stmt->fetch(\PDO::FETCH_ASSOC);
 }
 
 }
